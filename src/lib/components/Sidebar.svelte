@@ -255,7 +255,7 @@
 	}
 
 	@media (min-width: 768px) {
-		.sidebar {
+		.sidebar.open {
 			transform: translateX(0);
 		}
 

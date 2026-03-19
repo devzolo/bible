@@ -9,3 +9,4 @@ export const sidebarOpen = writable<boolean>(true);
 export const viewMode = writable<'side-by-side' | 'interleaved' | 'original-only' | 'translation-only'>('side-by-side');
 export const fontSize = writable<number>(16);
 export const searchQuery = writable<string>('');
+export const searchOpen = writable<boolean>(false);

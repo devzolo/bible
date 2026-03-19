@@ -12,6 +12,7 @@
 	import Toolbar from '$lib/components/Toolbar.svelte';
 	import ChapterNav from '$lib/components/ChapterNav.svelte';
 	import VerseReader from '$lib/components/VerseReader.svelte';
+	import SearchPalette from '$lib/components/SearchPalette.svelte';
 
 	let loading = $state(true);
 	let contentEl: HTMLElement | undefined = $state();
@@ -60,6 +61,8 @@
 
 	let isOpen = $derived($sidebarOpen);
 </script>
+
+<SearchPalette />
 
 <div class="app-layout">
 	<Sidebar />

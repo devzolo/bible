@@ -1,0 +1,6 @@
+{
+  "vault_path": "./.memory",
+  "memory_folder": "claude-memory",
+  "auto_save": false,
+  "language": "pt-BR"
+}

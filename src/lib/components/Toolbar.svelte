@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { sidebarOpen, viewMode, fontSize } from '$lib/store';
+	import { sidebarOpen, viewMode, fontSize, searchOpen } from '$lib/store';
 
 	let mode = $derived($viewMode);
 	let size = $derived($fontSize);
@@ -29,6 +29,12 @@
 			</button>
 		{/each}
 	</div>
+
+	<button class="search-btn" onclick={() => ($searchOpen = true)} title="Buscar (Ctrl+K)">
+		<span class="search-btn-icon">⌘</span>
+		<span class="search-btn-text">Buscar...</span>
+		<kbd class="search-kbd">Ctrl K</kbd>
+	</button>
 
 	<div class="font-controls">
 		<button class="size-btn" onclick={() => ($fontSize = Math.max(12, size - 1))}>A−</button>
@@ -124,6 +130,47 @@
 		text-align: center;
 	}
 
+	.search-btn {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 5px 12px;
+		background: var(--bg-surface-2);
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		color: var(--text-dim);
+		cursor: pointer;
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		transition: all 0.15s;
+		margin-left: 8px;
+	}
+
+	.search-btn:hover {
+		border-color: var(--border-light);
+		color: var(--text-muted);
+		background: var(--bg-surface-3);
+	}
+
+	.search-btn-icon {
+		font-size: 0.7rem;
+	}
+
+	.search-btn-text {
+		color: var(--text-dim);
+	}
+
+	.search-kbd {
+		font-size: 0.55rem;
+		background: var(--bg-surface-3);
+		border: 1px solid var(--border);
+		padding: 1px 4px;
+		border-radius: 3px;
+		font-family: var(--font-sans);
+		color: var(--text-dim);
+		margin-left: 4px;
+	}
+
 	@media (max-width: 600px) {
 		.mode-btn {
 			padding: 5px 7px;
@@ -132,6 +179,16 @@
 
 		.font-controls {
 			display: none;
+		}
+
+		.search-btn-text,
+		.search-kbd {
+			display: none;
+		}
+
+		.search-btn {
+			padding: 5px 8px;
+			margin-left: auto;
 		}
 	}
 </style>
