@@ -1,0 +1,63 @@
+:root {
+	--bg: #0f0f0f;
+	--bg-surface: #1a1a1a;
+	--bg-surface-2: #242424;
+	--bg-surface-3: #2e2e2e;
+	--bg-hover: #333;
+	--text: #e8e6e3;
+	--text-muted: #999;
+	--text-dim: #666;
+	--accent: #c9a84c;
+	--accent-dim: #8a6d2b;
+	--border: #2a2a2a;
+	--border-light: #383838;
+	--hebrew: #d4c5a0;
+	--greek: #a8c4d4;
+	--verse-num: #c9a84c;
+	--font-sans: 'Noto Sans', system-ui, -apple-system, sans-serif;
+	--font-serif: 'Noto Serif', Georgia, 'Times New Roman', serif;
+	--font-hebrew: 'Noto Sans Hebrew', 'SBL Hebrew', serif;
+	--sidebar-width: 300px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-sans);
+	background: var(--bg);
+	color: var(--text);
+	line-height: 1.6;
+	overflow: hidden;
+	height: 100vh;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--border-light);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--text-dim);
+}
+
+::selection {
+	background: var(--accent-dim);
+	color: var(--text);
+}
