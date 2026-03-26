@@ -4,6 +4,20 @@ export interface Verse {
 	t: string; // translation (portuguese)
 }
 
+export type TranslationId = 'acf' | 'bfl';
+
+export interface TranslationInfo {
+	id: TranslationId;
+	name: string;
+	shortName: string;
+	description: string;
+}
+
+export const TRANSLATIONS: TranslationInfo[] = [
+	{ id: 'acf', name: 'Almeida Corrigida Fiel', shortName: 'ACF', description: 'Tradução formal e clássica' },
+	{ id: 'bfl', name: 'Bíblia Fácil de Ler', shortName: 'BFL', description: 'Linguagem simples e acessível' },
+];
+
 export interface Chapter {
 	c: number;
 	verses: Verse[];

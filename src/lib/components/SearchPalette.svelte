@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { bibleIndex, sidebarOpen, viewMode, fontSize, searchOpen } from '$lib/store';
+	import { bibleIndex, sidebarOpen, viewMode, fontSize, searchOpen, activeSearchHighlight } from '$lib/store';
 	import {
 		search,
 		searchVerses,
@@ -114,13 +114,19 @@
 	function executeResult(result: SearchResult) {
 		switch (result.type) {
 			case 'nav':
-				window.location.hash = `#/${result.bookId}/${result.chapter}`;
+				$activeSearchHighlight = '';
+				window.location.hash = `#/${result.bookId}/${result.chapter}${result.verse ? `:${result.verse}` : ''}`;
 				break;
 			case 'book':
+				$activeSearchHighlight = '';
 				window.location.hash = `#/${result.book.id}/1`;
 				break;
 			case 'verse':
-				window.location.hash = `#/${result.bookId}/${result.chapter}`;
+				// Set search highlight so VerseReader marks the matched text
+				$activeSearchHighlight = query;
+				window.location.hash = `#/${result.bookId}/${result.chapter}:${result.verse}`;
+				// Clear highlight after 5 seconds
+				setTimeout(() => { $activeSearchHighlight = ''; }, 5000);
 				break;
 			case 'action':
 				executeAction(result.id);

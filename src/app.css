@@ -1,4 +1,6 @@
-:root {
+/* === Dark theme (default) === */
+:root,
+[data-theme="dark"] {
 	--bg: #0f0f0f;
 	--bg-surface: #1a1a1a;
 	--bg-surface-2: #242424;
@@ -20,6 +22,44 @@
 	--sidebar-width: 300px;
 }
 
+/* === Light theme === */
+[data-theme="light"] {
+	--bg: #fafafa;
+	--bg-surface: #ffffff;
+	--bg-surface-2: #f0f0f0;
+	--bg-surface-3: #e6e6e6;
+	--bg-hover: #eaeaea;
+	--text: #1a1a1a;
+	--text-muted: #555;
+	--text-dim: #888;
+	--accent: #9a7b2e;
+	--accent-dim: #c9a84c;
+	--border: #e0e0e0;
+	--border-light: #d0d0d0;
+	--hebrew: #6b5d3a;
+	--greek: #3a6478;
+	--verse-num: #9a7b2e;
+}
+
+/* === Sepia theme === */
+[data-theme="sepia"] {
+	--bg: #f4ecd8;
+	--bg-surface: #efe6d0;
+	--bg-surface-2: #e8dfc8;
+	--bg-surface-3: #ddd4bc;
+	--bg-hover: #d9ceb4;
+	--text: #3d3425;
+	--text-muted: #6b5e4a;
+	--text-dim: #8a7d68;
+	--accent: #8a6d2b;
+	--accent-dim: #b8952f;
+	--border: #d4c9b0;
+	--border-light: #c5ba9f;
+	--hebrew: #5a4d35;
+	--greek: #3a5a68;
+	--verse-num: #8a6d2b;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -38,6 +78,7 @@ body {
 	line-height: 1.6;
 	overflow: hidden;
 	height: 100vh;
+	transition: background 0.3s ease, color 0.3s ease;
 }
 
 ::-webkit-scrollbar {
@@ -60,4 +101,18 @@ body {
 ::selection {
 	background: var(--accent-dim);
 	color: var(--text);
+}
+
+/* Print styles */
+@media print {
+	body {
+		overflow: visible;
+		height: auto;
+		background: white;
+		color: black;
+	}
+
+	::-webkit-scrollbar {
+		display: none;
+	}
 }
